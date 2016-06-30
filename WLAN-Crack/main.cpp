@@ -27,12 +27,7 @@
 using namespace std;
 
 int main(int argc, char *argv[]) {
-    if(argc != 3) {
-        std::clog << argv[0] << std::endl;
-        return 0;
-    }
-    DNS_Spoofer dns_spoofer(argv[1], argv[2], argv[3]);
-    dns_spoofer.startSniffing();
-
+    Deauth deauth;
+    deauth.deauthAll();
     return 0;
 }

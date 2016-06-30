@@ -26,5 +26,6 @@
 
 #include "mitm.h"
 #include "dns_spoofer.h"
+#include "deauth.h"
 
 #endif //WLAN_CRACK_WLAN_CRACK_H
