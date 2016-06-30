@@ -26,16 +26,17 @@
 #include <tins/tins.h>
 using namespace Tins;
 class NW_Info {
-    protected:
-        SnifferConfiguration m_config;
-        NetworkInterface m_iface;
-        NetworkInterface::Info m_myInfo;
-        IPv4Address m_gateway, m_victim;
-        EthernetII::address_type m_gateway_hw, m_victim_hw;
-        PacketSender m_pSender;
+protected:
+    Sniffer m_sniffer;
+    SnifferConfiguration m_config;
+    NetworkInterface m_iface;
+    NetworkInterface::Info m_myInfo;
+    IPv4Address m_gateway, m_victim;
+    EthernetII::address_type m_gateway_hw, m_victim_hw;
+    PacketSender m_pSender;
 
-        //Constructor
-        NW_Info(char *, char *);
+    //Constructor
+    NW_Info(char *, char *);
 };
 
 

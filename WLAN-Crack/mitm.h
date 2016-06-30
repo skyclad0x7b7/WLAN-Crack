@@ -33,13 +33,12 @@
 
 class MITM : NW_Info {
 private:
-
-public:
-    MITM(char *, char *);
-    void startMITM();
     void startExchanging();
     bool packetHandler(PDU&);
     void startARPSpoofing();
+public:
+    MITM(char *, char *);
+    void startMITM();
 };
 
 #endif //MITMATTACK_MITM_H

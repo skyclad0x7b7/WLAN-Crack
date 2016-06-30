@@ -7,8 +7,10 @@
       <sourceFolder url="file://$MODULE_DIR$/mitm.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/nw_info.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/nw_info.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/wlan_crack.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dns_spoofer.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/mitm.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dns_spoofer.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/wlan_crack.h" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">

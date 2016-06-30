@@ -25,5 +25,6 @@
 #define WLAN_CRACK_WLAN_CRACK_H
 
 #include "mitm.h"
+#include "dns_spoofer.h"
 
 #endif //WLAN_CRACK_WLAN_CRACK_H

@@ -57,9 +57,9 @@ void MITM::startARPSpoofing() {
 
 void MITM::startExchanging() {
     std::this_thread::sleep_for(std::chrono::seconds(5));
-    Sniffer sniffer("wlan0", m_config);
+    m_sniffer = Sniffer("wlan0", m_config);
     std::clog << "[*] Start Sniffing" << std::endl;
-    sniffer.sniff_loop(make_sniffer_handler(this, &MITM::packetHandler));
+    m_sniffer.sniff_loop(make_sniffer_handler(this, &MITM::packetHandler));
 }
 
 bool MITM::packetHandler(PDU &pdu) {

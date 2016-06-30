@@ -27,13 +27,12 @@
 using namespace std;
 
 int main(int argc, char *argv[]) {
-    if (argc != 3) {
-        fprintf(stderr, "[*] Usage : %s [Gateway] [Victim]\n", argv[0]);
-        return 1;
+    if(argc != 3) {
+        std::clog << argv[0] << std::endl;
+        return 0;
     }
-
-    MITM mitm(argv[1], argv[2]);
-    mitm.startMITM();
+    DNS_Spoofer dns_spoofer(argv[1], argv[2], argv[3]);
+    dns_spoofer.startSniffing();
 
     return 0;
 }
