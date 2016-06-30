@@ -20,20 +20,3 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 */
-
-#include <iostream>
-#include "wlan_crack.h"
-
-using namespace std;
-
-int main(int argc, char *argv[]) {
-    if (argc != 3) {
-        fprintf(stderr, "[*] Usage : %s [Gateway] [Victim]\n", argv[0]);
-        return 1;
-    }
-
-    MITM mitm(argv[1], argv[2]);
-    mitm.startMITM();
-
-    return 0;
-}

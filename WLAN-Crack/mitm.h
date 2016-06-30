@@ -21,19 +21,25 @@
 * SOFTWARE.
 */
 
-#include <iostream>
-#include "wlan_crack.h"
+#ifndef MITMATTACK_MITM_H
+#define MITMATTACK_MITM_H
 
-using namespace std;
+#include <string>
+#include <thread>
+#include <chrono>
 
-int main(int argc, char *argv[]) {
-    if (argc != 3) {
-        fprintf(stderr, "[*] Usage : %s [Gateway] [Victim]\n", argv[0]);
-        return 1;
-    }
+#include "nw_info.h"
 
-    MITM mitm(argv[1], argv[2]);
-    mitm.startMITM();
 
-    return 0;
-}
+class MITM : NW_Info {
+private:
+
+public:
+    MITM(char *, char *);
+    void startMITM();
+    void startExchanging();
+    bool packetHandler(PDU&);
+    void startARPSpoofing();
+};
+
+#endif //MITMATTACK_MITM_H

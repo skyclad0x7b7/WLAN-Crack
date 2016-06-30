@@ -21,19 +21,9 @@
 * SOFTWARE.
 */
 
-#include <iostream>
-#include "wlan_crack.h"
+#ifndef WLAN_CRACK_WLAN_CRACK_H
+#define WLAN_CRACK_WLAN_CRACK_H
 
-using namespace std;
+#include "mitm.h"
 
-int main(int argc, char *argv[]) {
-    if (argc != 3) {
-        fprintf(stderr, "[*] Usage : %s [Gateway] [Victim]\n", argv[0]);
-        return 1;
-    }
-
-    MITM mitm(argv[1], argv[2]);
-    mitm.startMITM();
-
-    return 0;
-}
+#endif //WLAN_CRACK_WLAN_CRACK_H

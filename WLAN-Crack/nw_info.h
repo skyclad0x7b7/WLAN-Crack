@@ -21,19 +21,22 @@
 * SOFTWARE.
 */
 
-#include <iostream>
-#include "wlan_crack.h"
+#ifndef WLAN_CRACK_NW_INFO_H
+#define WLAN_CRACK_NW_INFO_H
+#include <tins/tins.h>
+using namespace Tins;
+class NW_Info {
+    protected:
+        SnifferConfiguration m_config;
+        NetworkInterface m_iface;
+        NetworkInterface::Info m_myInfo;
+        IPv4Address m_gateway, m_victim;
+        EthernetII::address_type m_gateway_hw, m_victim_hw;
+        PacketSender m_pSender;
 
-using namespace std;
+        //Constructor
+        NW_Info(char *, char *);
+};
 
-int main(int argc, char *argv[]) {
-    if (argc != 3) {
-        fprintf(stderr, "[*] Usage : %s [Gateway] [Victim]\n", argv[0]);
-        return 1;
-    }
 
-    MITM mitm(argv[1], argv[2]);
-    mitm.startMITM();
-
-    return 0;
-}
+#endif //WLAN_CRACK_NW_INFO_H

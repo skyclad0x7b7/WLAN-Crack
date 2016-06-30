@@ -21,19 +21,20 @@
 * SOFTWARE.
 */
 
-#include <iostream>
-#include "wlan_crack.h"
+#include "nw_info.h"
 
-using namespace std;
-
-int main(int argc, char *argv[]) {
-    if (argc != 3) {
-        fprintf(stderr, "[*] Usage : %s [Gateway] [Victim]\n", argv[0]);
-        return 1;
+NW_Info::NW_Info(char *_gateway, char *_victim) {
+    try {
+        m_gateway = _gateway;
+        m_victim = _victim;
+        m_iface = m_gateway;
+        m_myInfo = m_iface.addresses();
+    } catch(std::runtime_error& error) {
+        fprintf(stderr, "[*] Please input ip address correctly!!\n");
+        exit(1);
     }
-
-    MITM mitm(argv[1], argv[2]);
-    mitm.startMITM();
-
-    return 0;
+    m_pSender.default_interface("wlan0");
+    m_gateway_hw = Utils::resolve_hwaddr(m_iface, m_gateway, m_pSender);
+    m_victim_hw = Utils::resolve_hwaddr(m_iface, m_victim, m_pSender);
+    m_config.set_promisc_mode(false);
 }
