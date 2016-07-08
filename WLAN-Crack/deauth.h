@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <tins/tins.h>
+#include <string>
 #include <thread>
 #include <chrono>
 
@@ -14,10 +15,15 @@ using namespace Tins;
 
 class Deauth {
 protected:
+    Dot11::address_type m_victim;
+    PacketSender pSender;
+    void sendDeauth(Dot11::address_type, Dot11::address_type);
     void startSniffing();
+    void startSniffingOne(Dot11::address_type);
     bool packetHandler(PDU&);
+    void changeChannel();
 public:
-    void sendDeauth(char *input_ap, char *input_st);
+    void deauthOne(Dot11::address_type);
     void deauthAll();
 };
 
