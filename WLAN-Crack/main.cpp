@@ -27,11 +27,7 @@
 using namespace std;
 
 int main(int argc, char *argv[]) {
-    if(argc != 3) {
-
-    }
     Deauth deauth;
-    Dot11::address_type target("88:c9:d0:e8:89:8b");
-    deauth.deauthOne(target);
+    deauth.deauthOne(Dot11::address_type("F0:DB:F8:12:B0:00"), 1);
     return 0;
 }

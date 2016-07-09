@@ -21,12 +21,46 @@
 * SOFTWARE.
 */
 
-#ifndef WLAN_CRACK_WLAN_CRACK_H
-#define WLAN_CRACK_WLAN_CRACK_H
+#ifndef WLAN_CRACK_BEACON_H
+#define WLAN_CRACK_BEACON_H
 
-#include "mitm.h"
-#include "dns_spoofer.h"
-#include "deauth.h"
-#include "beacon.h"
+#include <vector>
+#include <string>
+#include <iostream>
+#include <fstream>
+#include <tins/tins.h>
+#include <thread>
+#include <chrono>
 
-#endif //WLAN_CRACK_WLAN_CRACK_H
+using namespace Tins;
+
+typedef class AccessPoint {
+protected:
+    std::string ssid;
+    Dot11::address_type mac;
+    int channel;
+public:
+    AccessPoint(std::string a_ssid, Dot11::address_type a_mac, int a_channel) : ssid(a_ssid), mac(a_mac), channel(a_channel) {}
+    std::string getSsid() {return ssid;}
+    Dot11::address_type getMac() {return mac;}
+    int getChannel() {return channel;}
+
+} AP;
+
+class Beacon {
+protected:
+    int channel;
+    bool endFlag;
+    std::vector<AP> apList;
+    std::ofstream apInfoStream;
+    void rotateChannel();
+    void startSniffing();
+    bool packetHandler(PDU&);
+    bool isIn(Dot11::address_type);
+public:
+    Beacon();
+    Beacon(char *);
+    void saveApInfo();
+};
+
+#endif //WLAN_CRACK_BEACON_H

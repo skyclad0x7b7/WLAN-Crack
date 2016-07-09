@@ -2,6 +2,7 @@
 <module type="CPP_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/beacon.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/dns_spoofer.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/main.cpp" isTestSource="false" />
@@ -9,10 +10,11 @@
       <sourceFolder url="file://$MODULE_DIR$/nw_info.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/deauth.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/nw_info.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/wlan_crack.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/deauth.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/beacon.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/mitm.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/dns_spoofer.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/deauth.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/wlan_crack.h" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
