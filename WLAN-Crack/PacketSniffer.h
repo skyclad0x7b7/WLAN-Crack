@@ -10,7 +10,7 @@
 
 namespace WLAN_CRACK
 {
-    class PacketSniffer()
+    class PacketSniffer
     {
     private:
         Tins::Sniffer m_sniffer;
