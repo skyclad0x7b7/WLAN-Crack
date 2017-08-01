@@ -13,11 +13,11 @@ namespace WLAN_CRACK
     class PacketSniffer
     {
     private:
-        Tins::Sniffer m_sniffer;
+        Tins::Sniffer *m_pSniffer = NULL;
         Tins::SnifferConfiguration m_snifferConfig;
     public:
         PacketSniffer(const char *interface, const char *filter);
-    }
+    };
 }
 
 #endif

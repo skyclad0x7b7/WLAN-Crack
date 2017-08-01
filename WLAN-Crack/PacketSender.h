@@ -8,7 +8,7 @@ namespace WLAN_CRACK
     class PacketSender
 	{
 
-	}
+	};
 }
 
 #endif
