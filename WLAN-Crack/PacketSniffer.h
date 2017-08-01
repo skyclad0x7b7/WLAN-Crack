@@ -10,14 +10,14 @@
 
 namespace WLAN_CRACK
 {
-	class PacketSniffer()
-	{
-	private:
+    class PacketSniffer()
+    {
+    private:
         Tins::Sniffer m_sniffer;
         Tins::SnifferConfiguration m_snifferConfig;
-	public:
+    public:
         PacketSniffer(const char *interface, const char *filter);
-	}
+    }
 }
 
 #endif

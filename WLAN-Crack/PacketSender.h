@@ -5,13 +5,13 @@
 
 namespace WLAN_CRACK
 {
-	class PacketSender()
-	{
-	private:
+    class PacketSender()
+    {
+    private:
 
-	public:
+    public:
 
-	}
+    }
 }
 
 #endif
