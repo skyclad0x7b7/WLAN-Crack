@@ -10,6 +10,7 @@
 
 namespace WLAN_CRACK
 {
+    /* This class should be inherited and should implement method 'PacketHandler'. */
     class PacketSniffer
     {
     private:
