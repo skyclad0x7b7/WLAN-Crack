@@ -3,26 +3,15 @@
 //
 #include "PacketSniffer.h"
 
-class MySniffer : public WLAN_CRACK::PacketSniffer
+bool PacketHandler(Tins::PDU& pdu)
 {
-private:
-    virtual bool PacketHandler(Tins::PDU& pdu)
-    {
-        while(true)
-        {
-            if(pdu.find_pdu<Tins::TCP>()){
-                const Tins::IP &ip = pdu.rfind_pdu<Tins::IP>();
-                const Tins::TCP &tcp = pdu.rfind_pdu<Tins::TCP>();
-                std::clog << " *** [" << ip.src_addr() << ":" << tcp.sport() << "] => [" << ip.dst_addr() << ":" << tcp.dport() << "] ***" << std::endl;
-            }
-            return true;
-        }
-        return false;
+    if(pdu.find_pdu<Tins::TCP>()){
+        const Tins::IP &ip = pdu.rfind_pdu<Tins::IP>();
+        const Tins::TCP &tcp = pdu.rfind_pdu<Tins::TCP>();
+        std::clog << " *** [" << ip.src_addr() << ":" << tcp.sport() << "] => [" << ip.dst_addr() << ":" << tcp.dport() << "] ***" << std::endl;
     }
-
-public:
-    MySniffer(const char *interface, const char*filter):PacketSniffer(interface, filter){};
-};
+    return true;
+}
 
 int main(int argc, char *argv[])
 {
@@ -30,7 +19,7 @@ int main(int argc, char *argv[])
         std::cerr << "[-] Usage : " << argv[0] << " [interface] [filter]" << std::endl;
         return -1;
     }
-    MySniffer sniffer(argv[1], argv[2]);
-    sniffer.StartSniffing();
+    WLAN_CRACK::PacketSniffer sniffer(argv[1], argv[2]);
+    sniffer.StartSniffing(&PacketHandler);
     return 0;
 }

@@ -9,10 +9,23 @@ namespace WLAN_CRACK
         std::clog << "[*] Sniffer Created with interface (" << interface << "), filter (" << filter << ")" << std::endl;
     }
 
+    PacketSniffer::~PacketSniffer()
+    {
+        if(m_pSniffer != nullptr)
+            delete m_pSniffer;
+    }
+
     void PacketSniffer::StartSniffing()
     {
-        if(m_pSniffer == NULL)
+        if(m_pSniffer == nullptr)
             return;
         m_pSniffer->sniff_loop(Tins::make_sniffer_handler(this, &PacketSniffer::PacketHandler));
+    }
+
+    void PacketSniffer::StartSniffing(bool (*a_PacketHandler)(Tins::PDU& pdu))
+    {
+        if(m_pSniffer == nullptr)
+            return;
+        m_pSniffer->sniff_loop(a_PacketHandler);
     }
 }

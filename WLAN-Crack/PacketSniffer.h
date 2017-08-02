@@ -10,16 +10,17 @@
 
 namespace WLAN_CRACK
 {
-    /* This class should be inherited and should implement method 'PacketHandler'. */
     class PacketSniffer
     {
     private:
-        Tins::Sniffer *m_pSniffer = NULL;
+        Tins::Sniffer *m_pSniffer = nullptr;
         Tins::SnifferConfiguration m_snifferConfig;
-        virtual bool PacketHandler(Tins::PDU&) = 0;
+        virtual bool PacketHandler(Tins::PDU&){ return true; };
     public:
         PacketSniffer(const char *interface, const char *filter);
+        ~PacketSniffer();
         void StartSniffing();
+        void StartSniffing(bool (*a_PacketHandler)(Tins::PDU&));
     };
 }
 

@@ -3,10 +3,12 @@
 
 #pragma once
 
+#include <tins/tins.h>
+
 namespace WLAN_CRACK
 {
     class PacketSender
-	{
+    {
 
 	};
 }
