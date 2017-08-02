@@ -1,2 +1,3 @@
 # WLAN-Crack
-WLAN Crack Tool using C++, libtins
+
+Wireless LAN Crack Tool using C++, [libtins](http://libtins.github.io/)
