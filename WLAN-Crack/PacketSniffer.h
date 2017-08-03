@@ -17,8 +17,10 @@ namespace WLAN_CRACK
         Tins::SnifferConfiguration m_snifferConfig;
         virtual bool PacketHandler(Tins::PDU&){ return true; };
     public:
-        PacketSniffer(const char *interface, const char *filter);
+        PacketSniffer(const char *interface, const char *filter = nullptr);
         ~PacketSniffer();
+        bool SetFilter(const char *filter);
+
         void StartSniffing();
         void StartSniffing(bool (*a_PacketHandler)(Tins::PDU&));
     };

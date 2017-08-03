@@ -6,7 +6,7 @@
 
 namespace WLAN_CRACK {
     // Constructor
-    ARPPacketSender::ARPPacketSender(const char *interface, const char *gateway) : PacketSender(interface)
+    ARPPacketSender::ARPPacketSender(const char *interface, Tins::IPv4Address gateway) : PacketSender(interface)
     {
         try {
             m_ipv4Gateway = gateway;
@@ -20,7 +20,7 @@ namespace WLAN_CRACK {
         m_hwGateway = Tins::Utils::resolve_hwaddr(m_iface, m_ipv4Gateway, m_sender);
     }
 
-    bool ARPPacketSender::DoARPSpoofing(const char *victim)
+    bool ARPPacketSender::DoARPSpoofing(Tins::IPv4Address victim)
     {
         Tins::IPv4Address ipv4Victim;
         Tins::EthernetII::address_type hwVictim;

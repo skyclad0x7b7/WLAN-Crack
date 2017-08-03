@@ -3,9 +3,10 @@
 namespace WLAN_CRACK
 {
     // Constructor
-    PacketSniffer::PacketSniffer(const char *interface, const char *filter)
+    PacketSniffer::PacketSniffer(const char *interface, const char *filter = nullptr)
     {
-        m_snifferConfig.set_filter(filter);
+        if(filter != nullptr)
+            m_snifferConfig.set_filter(filter);
         m_pSniffer = new Tins::Sniffer(interface, m_snifferConfig);
         std::clog << "[*] Sniffer Created with interface (" << interface << "), filter (" << filter << ")" << std::endl;
     }
@@ -17,6 +18,11 @@ namespace WLAN_CRACK
             delete m_pSniffer;
             m_pSniffer = nullptr;
         }
+    }
+
+    bool PacketSniffer::SetFilter(const char *filter)
+    {
+        return m_pSniffer->set_filter(filter);
     }
 
     void PacketSniffer::StartSniffing()
@@ -32,4 +38,5 @@ namespace WLAN_CRACK
             return;
         m_pSniffer->sniff_loop(a_PacketHandler);
     }
+
 }

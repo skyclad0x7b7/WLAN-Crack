@@ -21,8 +21,8 @@ namespace WLAN_CRACK {
         Tins::IPv4Address m_ipv4Gateway;
         Tins::EthernetII::address_type m_hwGateway;
     public:
-        ARPPacketSender(const char *interface, const char *gateway);
-        bool DoARPSpoofing(const char *victim);
+        ARPPacketSender(const char *interface, Tins::IPv4Address gateway);
+        bool DoARPSpoofing(Tins::IPv4Address victim);
     };
 }
 #endif //WLAN_CRACK_ARPPACKETSENDER_H
